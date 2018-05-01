@@ -1,0 +1,21 @@
+
+drop table if exists ITEMS;
+create table ITEMS (
+ID_ITEM integer not null AUTO_INCREMENT PRIMARY KEY,
+NAME_ITEM varchar(255) not null,
+PRICE_ITEM decimal(10,2) DEFAULT '0',
+REF_ITEM varchar(255) DEFAULT 'ref fournisseur à encoder'
+) ENGINE=InnoDB;
+
+drop table if exists USERS;
+create table USERS (
+ID_USER integer not null AUTO_INCREMENT PRIMARY KEY,
+NAME_USER varchar(255) not null,
+FORENAME_USER varchar(255) not null,
+LOGIN_USER varchar(255) not null,
+PWD_USER varchar(255) not null,
+LEVEL_USER varchar(10) default 'user'
+) ENGINE=InnoDB;
+
+INSERT INTO USERS (NAME_USER, FORENAME_USER, LOGIN_USER, PWD_USER)
+VALUES ('francois','bruynbroeck','fbruynb','123'); 

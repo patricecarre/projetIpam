@@ -1,0 +1,45 @@
+.container {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	background-color:white-space;
+	min-height: 960px;
+	min-width:960px;
+	
+}
+.maindiv {
+	display: inline-block;
+	width: auto;
+	height: auto;
+	min-height: 100%;
+	min-width:100%;
+	background: url(../srcimg/pen.jpg) no-repeat center fixed;
+}
+
+.button {
+	border-radius:7px;
+	border-style:ridge;
+	width: 180px;
+	height: 50px;
+	text-align: center;
+	background-color:white-space;
+	background: url(../srcimg/bouton.jpg) no-repeat;
+}
+
+img {
+	background-color:grey;
+}
+
+.txtlabel {
+color: black;
+text-decoration: none;
+font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+#exempleId{
+
+	}
+
+

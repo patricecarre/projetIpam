@@ -1,0 +1,6 @@
+infoItem(§_GET['iditem'])
+
+					echo "<form action='?action=validedit' class=txtlabel method='post'>";
+					echo "<label for="itemname">nom item :</br></label>";
+					echo "<input type='text' name='itemname' value=".$SESSION['itemname']."'/>";
+					echo "<label for="login">prix item :</br></label>";
