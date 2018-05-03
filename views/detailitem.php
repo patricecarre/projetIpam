@@ -4,9 +4,9 @@
 					<?php 
 					echo $_SESSION['itemname'];
 					echo "</br>";
-					echo $_SESSION['itemprice'];
+					echo "<span>prix:".$_SESSION['itemprice']." euros </span>";
 					echo "</br>";
-					echo $_SESSION['itemref'];
+					echo "<span>reference fournisseur:".$_SESSION['itemref']."</span>";
 					?>
 					</br>
 					<form method='post' action='?action=home'>
