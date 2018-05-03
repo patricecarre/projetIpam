@@ -21,9 +21,11 @@ function logon(){
 function home(){
 	if (isset($_SESSION['userlevel'])) {
 						if ($_SESSION['userlevel'] == 'admin') {
+							echo "bienvenue ".$_SESSION['userforename']." dans le menu administrateur ";
 							include ("views/admin.php");
 							}
 						elseif ($_SESSION['userlevel'] == 'user') {
+							echo "bienvenue ".$_SESSION['userforename']." dans le menu client";
 							include ("views/user.php");
 							}
 						else {

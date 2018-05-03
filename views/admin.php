@@ -1,14 +1,7 @@
 <?php $title = 'admin'; ?>
 <?php ob_start(); ?>
 
-			<?php 
-			echo $_SESSION['login'];
-			echo $_SESSION['pwd'];
-			echo $_SESSION['username'];
-			echo $_SESSION['userforename'];
-			echo $_SESSION['userlevel'];
-			?>
-	<p> MENU ADMIN </p>
+		</br>
 		<form method='post' action='?action=additem'>
 			<button class=button type="submit"> AJOUT ARTICLE </button>
 		</form>
