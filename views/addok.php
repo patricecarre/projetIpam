@@ -4,7 +4,7 @@
 					<p class=txtlabel> item ajoute</p>
 					</br>
 					<form method='post' action='?action=home'>
-						<button class=button type="submit"> RETOUR MENU ADMIN </button>
+						<button class=button type="submit"> RETOUR MENU </button>
 					</form>
 	
 <?php $content = ob_get_clean(); ?>

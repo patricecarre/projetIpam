@@ -56,6 +56,27 @@ if($status == PHP_SESSION_NONE){
 						elseif ($_GET['action'] == 'disconnect') {
 							disconnect();
 							}
+						elseif ($_GET['action'] == 'viewbasket') {
+							viewbasket();
+							}
+						elseif ($_GET['action'] == 'orderitem') {
+							orderitem();
+							}
+						elseif ($_GET['action'] == 'additembasket') {
+							additembasket();
+							}
+						elseif ($_GET['action'] == 'delitembasket') {
+							delitembasket();
+							}
+						elseif ($_GET['action'] == 'editquantitybasket') {
+							editquantitybasket();
+							}
+						elseif ($_GET['action'] == 'validorder') {
+							validorder();
+							}
+						elseif ($_GET['action'] == 'listoforders') {
+							listoforders();
+							}
 						else {
 							home();
 						}

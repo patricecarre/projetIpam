@@ -17,5 +17,12 @@ PWD_USER varchar(255) not null,
 LEVEL_USER varchar(10) default 'user'
 ) ENGINE=InnoDB;
 
-INSERT INTO USERS (NAME_USER, FORENAME_USER, LOGIN_USER, PWD_USER)
-VALUES ('francois','bruynbroeck','fbruynb','123'); 
+drop table if exists ORDERS;
+create table ORDERS (
+ID_ORDER integer not null AUTO_INCREMENT PRIMARY KEY,
+ID_ITEM integer references ITEMS(ID_ITEM),
+ID_USER integer references USERS(ID_USER),
+QUANTITY integer not null,
+TOTAL_ORDER decimal(10,2) not null,
+REF_ORDER TIMESTAMP default CURRENT_TIMESTAMP
+) ENGINE=InnoDB;

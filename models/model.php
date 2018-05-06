@@ -11,6 +11,7 @@
 		
 		while ($results = $user->fetch())
 		{
+			$_SESSION['userid']=$results['ID_USER'];
 			$_SESSION['username']=$results['NAME_USER'];
 			$_SESSION['userforename']=$results['FORENAME_USER'];
 			$_SESSION['userlevel']=$results['LEVEL_USER'];
@@ -35,7 +36,18 @@
 	
 	function deleteitemdb(){
 		require('models/connectDB.php');
-		$bdd->exec('DELETE FROM items WHERE ID_ITEM="'.$_SESSION['iditem'].'"');
+		$itemordered=false;
+		$item=$bdd->query('SELECT * FROM ORDERS WHERE ID_ITEM="'.$_SESSION['iditem'].'"');
+		while ($results = $item->fetch())
+		{
+			$itemordered=true;
+		}
+		$item->closeCursor();
+		if (!$itemordered) {
+			$bdd->exec('DELETE FROM items WHERE ID_ITEM="'.$_SESSION['iditem'].'"');
+			echo "item supprimé";
+		}
+		else echo "item en commande vous ne pouvez pas le supprimer";
 	}
 	
 	function listEditItem(){
@@ -90,4 +102,90 @@
 		$item->closeCursor();
 	}
 	
+	function getInfoUser($iduser){
+		require('models/connectDB.php');
+		$_SESSION['idcustomer']=$iduser;
+		$item = $bdd->query('SELECT * FROM users WHERE ID_USER="'.$_SESSION['idcustomer'].'"');
+				while ($results = $item->fetch())
+		{
+			$_SESSION['namecustomer']=$results['NAME_USER'];
+			$_SESSION['forenamecustomer']=$results['FORENAME_USER'];
+		}
+		$item->closeCursor();
+	}
+	
+	function getitemorder(){
+		require('models/connectDB.php');
+		$item=$bdd->query('SELECT * FROM ITEMS');
+		echo "<span class=txtlabel> Choisissez l'article à commander en précisant la quantité souhaitée</span>";
+		echo "</br>";
+		while ($results = $item->fetch())
+		{
+			echo $results['NAME_ITEM'];
+			echo "<form method='post' action='?action=additembasket&amp;iditem=".$results['ID_ITEM']."'>";
+			echo "<label for='quantity'>quantité : </label>";
+			echo "<input type='text' class=inputqt name='quantity'/>";
+			echo "<button type='submit'>COMMANDER</button>";
+			echo "</form>";
+		}
+		$item->closeCursor();
+		}
+		
+	function addorderdb(){
+		$nbritem=count($_SESSION['basket']['iditem']);
+		require('models/connectDB.php');
+		for($i = 0; $i < $nbritem; $i++)
+			{
+				$bdd->exec('INSERT INTO orders(ID_ITEM,ID_USER,QUANTITY,TOTAL_ORDER) VALUES ("'.$_SESSION['basket']['iditem'][$i].'","'.$_SESSION['userid'].'","'.$_SESSION['basket']['quantity'][$i].'","'.$_SESSION['totalorder'].'")');
+			}
+		}
+		
+		
+	function getallorders (){
+		require('models/connectDB.php');
+		$tempcustomer=0;
+		$temporder=0;
+		$order=$bdd->query('SELECT * FROM ORDERS ORDER BY ID_USER');
+		while ($results = $order->fetch())
+			{
+				getInfoItem($results['ID_ITEM']);
+				getInfoUser($results['ID_USER']);
+				if ($_SESSION['idcustomer'] != $tempcustomer) {
+					echo "</br>";
+					echo "CLIENT n°:".$_SESSION['idcustomer']." Nom: ".$_SESSION['namecustomer']." Prenom: ".$_SESSION['forenamecustomer']."";
+					echo "</br>";
+				}
+				if ($results['REF_ORDER'] != $temporder) { 
+				echo "COMMANDE n°: ".$results['REF_ORDER']." total: ".$results['TOTAL_ORDER']." euros";
+				echo "</br>";
+				}
+				echo " - ".$_SESSION['itemname']." prix: ".$_SESSION['itemprice']." x".$results['QUANTITY']." ";
+				$tempcustomer=$_SESSION['idcustomer'];
+				$temporder=$results['REF_ORDER'];
+				echo "</br>";
+			}
+		$order->closeCursor();
+		}
+		
+		
+	
+	function getlistoforders(){
+		require('models/connectDB.php');
+		$temporder=0;
+		$order=$bdd->query('SELECT * FROM ORDERS WHERE ID_USER="'.$_SESSION['userid'].'" ORDER BY REF_ORDER');
+		while ($results = $order->fetch())
+			{
+				getInfoItem($results['ID_ITEM']);
+				if ($results['REF_ORDER'] != $temporder) { 
+				echo "</br>";
+				echo "COMMANDE n°: ".$results['REF_ORDER']." total: ".$results['TOTAL_ORDER']." euros";
+				echo "</br>";
+				}
+				echo " - ".$_SESSION['itemname']." prix: ".$_SESSION['itemprice']." x".$results['QUANTITY']." ";
+				echo "</br>";
+				$temporder=$results['REF_ORDER'];
+			}
+		$order->closeCursor();
+		}
+		
 ?>

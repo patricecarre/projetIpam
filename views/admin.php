@@ -14,7 +14,7 @@
 			<button class=button type="submit"> SUPPRIMER ARTICLE </button>
 		</form>
 		</br>
-		<form method='post' action='?action=listorders'>
+		<form method='post' action='?action=listoforders'>
 			<button class=button type="submit"> LISTE DES COMMANDES </button>
 		</form>
 		</br>
