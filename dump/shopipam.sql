@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  Dim 06 mai 2018 à 04:42
+-- Généré le :  mer. 09 mai 2018 à 16:21
 -- Version du serveur :  10.1.24-MariaDB
 -- Version de PHP :  7.1.6
 
@@ -43,7 +43,9 @@ INSERT INTO `items` (`ID_ITEM`, `NAME_ITEM`, `PRICE_ITEM`, `REF_ITEM`) VALUES
 (1, 'latte 30cm', '5.20', '123456'),
 (5, 'bic vert', '1.32', '32455'),
 (7, 'gomme blanche', '1.00', '238675'),
-(9, 'trombone', '0.12', '76534');
+(9, 'trombone', '0.12', '76534'),
+(10, 'fluo jaune', '1.00', '234556'),
+(11, 'perforatrice xl', '34.00', '534627');
 
 -- --------------------------------------------------------
 
@@ -65,19 +67,16 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`ID_ORDER`, `ID_ITEM`, `ID_USER`, `QUANTITY`, `TOTAL_ORDER`, `REF_ORDER`) VALUES
-(1, 1, 8, 2, '17.68', '2018-05-06 01:39:42'),
-(2, 7, 8, 2, '17.68', '2018-05-06 01:39:42'),
-(3, 5, 8, 4, '17.68', '2018-05-06 01:39:42'),
-(4, 5, 7, 5, '23.00', '2018-05-06 01:40:23'),
-(5, 1, 7, 2, '23.00', '2018-05-06 01:40:23'),
-(6, 7, 7, 6, '23.00', '2018-05-06 01:40:23'),
-(7, 5, 2, 5, '6.60', '2018-05-06 01:41:07'),
-(8, 5, 7, 4, '5.28', '2018-05-06 01:55:53'),
-(9, 1, 6, 4, '27.44', '2018-05-06 02:21:00'),
-(10, 5, 6, 2, '27.44', '2018-05-06 02:21:00'),
-(11, 7, 6, 4, '27.44', '2018-05-06 02:21:00'),
-(12, 9, 6, 20, '14.40', '2018-05-06 02:36:53'),
-(13, 7, 6, 12, '14.40', '2018-05-06 02:36:53');
+(14, 5, 5, 2, '4.08', '2018-05-09 12:49:25'),
+(15, 9, 5, 12, '4.08', '2018-05-09 12:49:25'),
+(16, 1, 4, 12, '77.40', '2018-05-09 12:50:16'),
+(17, 5, 4, 11, '77.40', '2018-05-09 12:50:16'),
+(18, 9, 4, 4, '77.40', '2018-05-09 12:50:16'),
+(19, 1, 4, 1, '7.84', '2018-05-09 12:54:49'),
+(20, 5, 4, 2, '7.84', '2018-05-09 12:54:49'),
+(21, 7, 4, 15, '15.36', '2018-05-09 13:02:33'),
+(22, 9, 4, 3, '15.36', '2018-05-09 13:02:33'),
+(23, 10, 4, 20, '20.00', '2018-05-09 13:05:48');
 
 -- --------------------------------------------------------
 
@@ -99,11 +98,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`ID_USER`, `NAME_USER`, `FORENAME_USER`, `LOGIN_USER`, `PWD_USER`, `LEVEL_USER`) VALUES
-(1, 'patrice', 'carre', 'admin', 'admin', 'admin'),
-(2, 'francois', 'bruynbroeck', 'fbruynb', '123', 'user'),
-(6, 'fassiau', 'genevieve', 'gfassiau', '123', 'user'),
-(7, 'carre', 'patrice', 'pcarre', '123', 'user'),
-(8, 'gates', 'bill', 'gb', '123', 'user');
+(2, 'carre', 'patrice', 'admin', '$2y$10$utSrBr8b78nMNIPj9gAE7OQyB/Np8MwJcGgRXTVYpQiJutE8.EG66', 'admin'),
+(3, 'bruynbroeck', 'francois', 'fb', '$2y$10$iNwADoIEYfD7Fr2S9f5r7uixBil4dWldH8KCO7A5cMh90pFpgFWVm', 'user'),
+(4, 'fassiau', 'genevieve', 'gfassiau', '$2y$10$vAJU8Upr2o8gfF995EnbH.5oUgv4dT2XL8UQOPKjLyX7oFdh1OwVa', 'user'),
+(5, 'random', 'customer', 'rc', '$2y$10$hfmwB2CofeX6KbVPEZjEQ.lfjOuNETX1qmMp2ZemYhmgPqbxdDNJG', 'user');
 
 --
 -- Index pour les tables déchargées
@@ -135,17 +133,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `items`
 --
 ALTER TABLE `items`
-  MODIFY `ID_ITEM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID_ITEM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT pour la table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `ID_ORDER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID_ORDER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;COMMIT;
+  MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

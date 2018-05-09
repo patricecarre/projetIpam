@@ -14,7 +14,7 @@
 						    <input type="text" name="loginuser"/>
 							</br>
 							<label for="passworduser">password user :</br></label>
-						    <input type="text" name="passworduser"/>
+						    <input type="password" name="passworduser"/>
 							</br>
 							</br>
 							<input class=button type="submit" value="AJOUT CLIENT" />

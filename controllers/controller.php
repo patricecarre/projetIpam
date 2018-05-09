@@ -153,6 +153,7 @@ function validadduser()
 {	
 	adduserdb();
 	include ("views/adduserok.php");
+	
 }
 
 function validedit()

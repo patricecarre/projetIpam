@@ -1,11 +1,11 @@
 <?php $title = 'addok'; ?>
 <?php ob_start(); ?>
 
-					<p class=txtlabel> item ajoute</p>
-					</br>
-					<form method='post' action='?action=home'>
-						<button class=button type="submit"> RETOUR MENU </button>
-					</form>
+<script type="text/javascript">
+var msg='<?PHP echo " Article ".$_POST['itemname']." ajouté";?>';
+ alert(msg);
+ document.location.href="?action=home";
+</script>
 	
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>

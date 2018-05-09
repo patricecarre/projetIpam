@@ -7,14 +7,17 @@
 		$_SESSION['userforename']='null';
 		$_SESSION['userlevel']='null';
 		require('models/connectDB.php');
-		$user = $bdd->query('SELECT * FROM users WHERE LOGIN_USER="'.$_SESSION['login'].'" AND PWD_USER="'.$_SESSION['pwd'].'"');
+		$user = $bdd->query('SELECT * FROM users WHERE LOGIN_USER="'.$_SESSION['login'].'"');
 		
 		while ($results = $user->fetch())
 		{
+			if (password_verify($_SESSION['pwd'], $results['PWD_USER'])){
 			$_SESSION['userid']=$results['ID_USER'];
 			$_SESSION['username']=$results['NAME_USER'];
 			$_SESSION['userforename']=$results['FORENAME_USER'];
 			$_SESSION['userlevel']=$results['LEVEL_USER'];
+			include ("js/welcome.php");		
+			}
 		}
 		$user->closeCursor();
 	}
@@ -26,7 +29,8 @@
 
 	function adduserdb(){
 		require('models/connectDB.php');
-		$bdd->exec('INSERT INTO users(NAME_USER,FORENAME_USER,LOGIN_USER,PWD_USER) VALUES ("'.$_POST['nameuser'].'","'.$_POST['forenameuser'].'","'.$_POST['loginuser'].'","'.$_POST['passworduser'].'")');
+		$passwordcrypted=password_hash($_POST['passworduser'], PASSWORD_DEFAULT);
+		$bdd->exec('INSERT INTO users(NAME_USER,FORENAME_USER,LOGIN_USER,PWD_USER) VALUES ("'.$_POST['nameuser'].'","'.$_POST['forenameuser'].'","'.$_POST['loginuser'].'","'.$passwordcrypted.'")');
 	}
 	
 	function edititemdb(){

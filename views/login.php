@@ -7,7 +7,7 @@
 						    <input type="text" name="login"/>
 							</br>
 							<label for="login">entrez votre mot de passe :</br></label>
-							<input type="text" name="pwd" />
+							<input type="password" name="pwd" />
 							</br>
 							</br>
 							<input class=button type="submit" value="ME CONNECTER" />
