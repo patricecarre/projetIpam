@@ -72,7 +72,7 @@ REMARQUES ET JUSTIFICATIONS DE CERTAINS CHOIX:
 		- après la factorisation du modèle en modèles distincts, une baisse nette de performance a été notée dans l'application - le choix a été fait de ne pas risquer de la ralentir davantage
 		- au niveau purement dev, à titre personnel, j'aime avoir la liste de mes appels sous forme de fonctions dans un fichier unique au lieu de multiplier les include
 		
-3) Hum...On constate la présence de rare lignes "echo" ou d'appel de fonctions dans les modèles ou le controller ?!
+3) Hum...On constate la présence de rares lignes "echo" ou d'appel de fonctions dans les modèles ou le controller ?!
 
 	- choix pour la facilité et la performance, si une seule ligne suffit, je préfère ça qu'un include (cfr explications point précedent au niveau performance)
 	
@@ -100,7 +100,7 @@ REMARQUES ET JUSTIFICATIONS DE CERTAINS CHOIX:
 	
 8) Et l'esthétique dans tout ça ???
 
-	Le but de l'exercice n'étant de battre des records à ce niveau, ce point a été développé au minimum. Il est évident que dans une application de production, les css 
+	Le but de l'exercice n'étant pas de battre des records à ce niveau, ce point a été développé au minimum. Il est évident que dans une application de production, les css 
 	et les différents affichage devraient être affinés(exemples: les listes affichées dans des tableaux ou encore quelques animations sur les boutons et le background)
 	
 
