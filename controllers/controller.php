@@ -4,7 +4,7 @@ require('models/model.php');
 
 function viewshop()
 {
-	listViewItem();
+	include("models/listviewitem.php");
 	include ("views/viewshop.php");
 }
 
@@ -14,7 +14,7 @@ function login()
 }
 
 function logon(){
-	logonUser();
+	include("models/logonuser.php");
 	home();
 }
 
@@ -26,7 +26,7 @@ function home(){
 							}
 						elseif ($_SESSION['userlevel'] == 'user') {
 							echo "bienvenue ".$_SESSION['userforename']." dans le menu client";
-							if (!isset($_SESSION['basket'])) createBasket();
+							if (!isset($_SESSION['basket'])) include("models/createbasket.php");
 							include ("views/user.php");
 							}
 						else {
@@ -39,11 +39,11 @@ function home(){
 
 function listoforders(){
 						if ($_SESSION['userlevel'] == 'admin') {
-							getallorders();
+							include("models/getallorders.php");
 							include ("views/adminlistoforders.php");
 							}
 						elseif ($_SESSION['userlevel'] == 'user') {
-							getlistoforders();
+							include("models/getlistoforders.php");
 							include ("views/userlistoforders.php");
 							}
 						else {
@@ -54,46 +54,11 @@ function listoforders(){
 
 
 
-function createBasket(){
-	$_SESSION['basket']=array();
-	$_SESSION['basket']['iditem']=array();
-	$_SESSION['basket']['quantity']=array();
-	}
+
 	
 function viewbasket(){
-	getorder();
+	include("models/getorder.php");
 	include ("views/viewbasket.php");
-}
-
-function getorder(){
-	$nbritem=count($_SESSION['basket']['iditem']);
-	$_SESSION['totalorder']=0;
-	echo "CONTENU ACTUEL DE VOTRE PANIER:";
-	echo "</br>";
-	echo "</br>";
-	if ($nbritem>0) {
-		   for($i = 0; $i < $nbritem; $i++)
-			{
-			getInfoItem($_SESSION['basket']['iditem'][$i]);
-			echo "article: ".$_SESSION['itemname']." - prix unitaire:".$_SESSION['itemprice']." euros ";
-			echo "<form method='post' action='?action=editquantitybasket&amp;iditem=".$_SESSION['iditem']."'>";
-			echo "<label for='quantity'>quantité : </label>";
-			echo "<input type='text' name='quantity' class=inputqt value='".$_SESSION['basket']['quantity'][$i]."'>";
-			echo "<button type='submit'>modifier</button>";
-			echo "</form>";
-			echo "<form method='post' action='?action=delitembasket&amp;iditem=".$_SESSION['iditem']."'>";
-			echo "<button type='submit'>supprimer article</button>";
-			echo "</form>";
-			$_SESSION['totalorder'] += $_SESSION['basket']['quantity'][$i] * $_SESSION['itemprice'];
-			}
-			echo "montant total commande: ".$_SESSION['totalorder']." euros";
-			echo "</br>";
-			echo "</br>";
-			echo "<form method='post' action='?action=validorder'>";
-			echo "<button class='button' type='submit'>VALIDER LE PANIER</button>";
-			echo "</form>";			
-	}
-	else echo "VOTRE PANIER EST VIDE";
 }
 
 
@@ -133,95 +98,63 @@ function adduser()
 
 function listToEdit()
 {
-	listEditItem();
+	include("models/listedititem.php");
 	include ("views/viewshop.php");
 }
 
 function listToDelete()
 {
-	listDeleteItem();
+	include("models/listdeleteitem.php");
 	include ("views/viewshop.php");
 }
 
 function validadd()
 {	
-	additemdb();
+	include("models/additemdb.php");
 	include ("views/addok.php");
 }
 
 function validadduser()
 {	
-	adduserdb();
+	include("models/adduserdb.php");
 	include ("views/adduserok.php");
 	
 }
 
 function validedit()
 {	
-	edititemdb();
+	include("models/edititemdb.php");
 	include ("views/editok.php");
 }
 
 function validdelete()
 {	
-	deleteitemdb();
+	include("models/deleteitemdb.php");
 	include ("views/deleteok.php");
 }
 
 function orderitem(){
-	getitemorder();
+	include("models/getitemorder.php");
 	include ("views/orderitem.php");
 }
 
 function additembasket(){
-	$nbritem=count($_SESSION['basket']['iditem']);
-	$itemexists=false;
-	if ($nbritem>0) {
-		for($i = 0; $i < $nbritem; $i++)
-			{
-				if ($_SESSION['basket']['iditem'][$i]==$_GET['iditem']) {
-					$_SESSION['basket']['quantity'][$i] += $_POST['quantity'];
-					$itemexists=true;
-				}
-			}
-	}
-	if(!$itemexists) {
-		$_SESSION['basket']['iditem'][]=$_GET['iditem'];
-		$_SESSION['basket']['quantity'][]=$_POST['quantity'];
-	}
+	include("models/additembasket.php");
 	viewbasket();
 }
 
 function delitembasket(){
-	$nbritem=count($_SESSION['basket']['iditem']);
-	$_SESSION['tempbasket']=array();
-	$_SESSION['tempbasket']['iditem']=array();
-	$_SESSION['tempbasket']['quantity']=array();
-	for($i = 0; $i < $nbritem; $i++){
-		if ($_GET['iditem'] != $_SESSION['basket']['iditem'][$i]) {
-			$_SESSION['tempbasket']['iditem'][]=$_SESSION['basket']['iditem'][$i];
-			$_SESSION['tempbasket']['quantity'][]=$_SESSION['basket']['quantity'][$i];
-			}
-		}
-	
-	$_SESSION['basket']= $_SESSION['tempbasket'];
-	unset ($_SESSION['tempbasket']);
+	include("models/delitembasket.php");
 	viewbasket();
 }
 
 function editquantitybasket(){
-	$nbritem=count($_SESSION['basket']['iditem']);
-	for($i = 0; $i < $nbritem; $i++){
-		if ($_SESSION['basket']['iditem'][$i] == $_GET['iditem']) {
-			$_SESSION['basket']['quantity'][$i]=$_POST['quantity'];
-			}
-		}
+	include("models/editquantitybasket.php");
 	viewbasket();
 }
 
 function validorder(){
-	addorderdb();
-	unset ($_SESSION['basket']);
-	createBasket();
+	include("models/addorderdb.php");
+	include("models/createbasket.php");
 	home();
 }
