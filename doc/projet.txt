@@ -1,0 +1,106 @@
+PROJET WEB IPAM 2018 - PROJET MAGASIN FOURNITUREES DE BUREAU EN LIGNE - PAR PATRICE CARRE
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+enoncé du projet et prérequis:
+------------------------------
+Le site web permettra aux visiteurs de:
+
+    Consulter la liste des articles
+    Voir le détail des articles
+
+Le site web permettra (en plus) aux clients (personnes authentifiées) de:
+
+    Ajouter des articles dans son panier
+    Valider une commande (confirmer son panier)
+    Consulter la liste de ses commandes
+
+Le site web permettra aux administrateurs de:
+
+    Ajouter des articles
+    Editer des articles
+    Supprimer des articles
+    Lister les commandes
+
+Il est également demandé d'utiliser à un moment le langage javascript dans votre projet.
+
+Concernant les articles, le minimum à afficher est:
+
+    Un titre
+    Un prix
+
+La gestion d'un stock n'est donc pas obligatoire (on suppose que le stock est illimité).
+
+Concernant les commandes, le minimum à afficher est:
+
+    Le nom du client qui passe la commande
+    Les articles commandés
+    Le prix total de la commande
+
+Le site sera développé en PHP (minimum v5.6) avec OU sans framework.
+
+Les données sont stockées dans une base de données MySQL.
+
+Côté skin (CSS), le site doit être agréable à visiter.
+Vous devez donc structurer le rendu et respecter les balises (<h1..2..3>, <div>, <label>, <table>, <th>, etc)
+
+Le développeur doit respecter l'architecture MVC.
+
+Sans framework, il est important de séparer vos fichiers en (minimum) 3 dossiers:
+
+    models
+    views
+    controllers
+
+Un fichier "index.php" à la racine du projet fera office de routeur 
+
+N'oubliez pas de sécuriser vos dossiers et de configurer apache (via .htaccess) afin de toujours faire pointer les chemins vers votre routeur.
+
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+
+REMARQUES ET JUSTIFICATIONS DE CERTAINS CHOIX:
+----------------------------------------------
+
+1) Ah il y a du Javascript!
+
+	Utilisé pour faire de l'alerting lorsque des champs sont mal remplis dans les formulaires et de la redirection d'url
+
+2) Il n'y a qu'un seul controller...Fainéant!
+
+	il y a des raisons multiples:
+		- au niveau purement théorique , la theorie veut qu'un router envoie vers un controller qui appelle des vues et des modèles
+		- après la factorisation du modèle en modèles distincts, une baisse nette de performance a été notée dans l'application - le choix a été fait de ne pas risquer de la ralentir davantage
+		- au niveau purement dev, à titre personnel, j'aime avoir la liste de mes appels sous forme de fonctions dans un fichier unique au lieu de multiplier les include
+		
+3) Hum...On constate la présence de rare lignes "echo" ou d'appel de fonctions dans les modèles ou le controller ?!
+
+	- choix pour la facilité et la performance, si une seule ligne suffit, je préfère ça qu'un include (cfr explications point précedent au niveau performance)
+	
+4) Pourquoi un fichier générique "model.php" au milieu des modèles spécifiques ?
+
+	il contient les fonctions appelées à plusieurs endroits dans l'application, le reste du code est divisé en modèles séparés
+
+5) Oh...des trucs pas demandés !
+
+	- ajout d'un client pour l'administrateur
+	- modification des quantités dans la gestion du panier
+	- les articles comportent une référence fournisseur
+	- les commandes recoivent une référence unique basée sur le current timestamp
+	
+6) on peut créer des doublons dans les articles ?!
+
+	L'explication est simple, dans la vraie vie, un article peut se distinguer par une combinaison de 3 clés: nom, référence fournisseur,nom du fournisseur
+	(en effet on peut imaginer que deux fournisseurs différents fournissent deux articles identiques en nom et référence propre - cas déja rencontré)
+	--> vu qu'aucune gestion des fournisseurs n'est demandée dans l'application, il me semble impossible de mettre en place un check pertinent
+	--> le principe de vérification est fonctionnel et utilisé dans la partie création de user qui check qu'on ne crée pas deux logins identiques
+	
+7) et le format d'encodage ??
+
+	on est en utf8. Les caractère acceptés pour les formulaires sont les chiffres, les lettres (accentuées compris) et les espaces blancs
+	
+8) Et l'esthétique dans tout ça ???
+
+	Le but de l'exercice n'étant de battre des records à ce niveau, ce point a été développé au minimum. Il est évident que dans une application de production, les css 
+	et les différents affichage devraient être affinés(exemples: les listes affichées dans des tableaux ou encore quelques animations sur les boutons et le background)
+	
+

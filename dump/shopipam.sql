@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  jeu. 10 mai 2018 à 21:42
+-- Généré le :  jeu. 10 mai 2018 à 22:47
 -- Version du serveur :  10.1.24-MariaDB
 -- Version de PHP :  7.1.6
 
@@ -83,13 +83,6 @@ INSERT INTO `orders` (`ID_ORDER`, `ID_ITEM`, `ID_USER`, `QUANTITY`, `TOTAL_ORDER
 (24, 9, 4, 2, '0.24', '2018-05-10 13:35:30'),
 (25, 7, 4, 2, '138.00', '2018-05-10 13:39:20'),
 (26, 11, 4, 4, '138.00', '2018-05-10 13:39:20'),
-(27, 1, 6, 3, '16.08', '2018-05-10 14:04:06'),
-(28, 9, 6, 4, '16.08', '2018-05-10 14:04:06'),
-(29, 11, 6, 5, '170.00', '2018-05-10 14:14:44'),
-(30, 10, 6, 8, '176.80', '2018-05-10 14:19:54'),
-(31, 11, 6, 5, '176.80', '2018-05-10 14:19:54'),
-(32, 7, 6, 12, '79.60', '2018-05-10 14:28:13'),
-(33, 1, 6, 13, '79.60', '2018-05-10 14:28:13'),
 (34, 1, 4, 1, '4567.94', '2018-05-10 17:58:17'),
 (35, 5, 4, 2, '4567.94', '2018-05-10 17:58:17'),
 (36, 9, 4, 20, '4567.94', '2018-05-10 17:58:17'),
@@ -97,10 +90,9 @@ INSERT INTO `orders` (`ID_ORDER`, `ID_ITEM`, `ID_USER`, `QUANTITY`, `TOTAL_ORDER
 (38, 11, 4, 1, '4567.94', '2018-05-10 17:58:17'),
 (39, 13, 4, 100, '4567.94', '2018-05-10 17:58:17'),
 (40, 7, 4, 2, '4567.94', '2018-05-10 17:58:17'),
-(41, 17, 6, 1, '34.00', '2018-05-10 18:42:24'),
-(42, 14, 6, 2, '10.24', '2018-05-10 18:48:07'),
-(43, 7, 6, 3, '139.00', '2018-05-10 18:54:56'),
-(44, 11, 6, 4, '139.00', '2018-05-10 18:54:56');
+(45, 7, 12, 3, '76.12', '2018-05-10 20:46:29'),
+(46, 11, 12, 2, '76.12', '2018-05-10 20:46:29'),
+(47, 14, 12, 1, '76.12', '2018-05-10 20:46:29');
 
 -- --------------------------------------------------------
 
@@ -126,8 +118,8 @@ INSERT INTO `users` (`ID_USER`, `NAME_USER`, `FORENAME_USER`, `LOGIN_USER`, `PWD
 (3, 'bruynbroeck', 'francois', 'fb', '$2y$10$iNwADoIEYfD7Fr2S9f5r7uixBil4dWldH8KCO7A5cMh90pFpgFWVm', 'user'),
 (4, 'fassiau', 'genevieve', 'gfassiau', '$2y$10$vAJU8Upr2o8gfF995EnbH.5oUgv4dT2XL8UQOPKjLyX7oFdh1OwVa', 'user'),
 (5, 'random', 'customer', 'rc', '$2y$10$hfmwB2CofeX6KbVPEZjEQ.lfjOuNETX1qmMp2ZemYhmgPqbxdDNJG', 'user'),
-(6, 'q', 'q', 'q', '$2y$10$qlZxlXVuN2aD4NqDwBsc5uQySL1Ip4btkj6SIJEDHp0ERWdngiwwm', 'user'),
-(7, 'w', 'w', 'w', '$2y$10$LYsWIwK4HGp1gmqiDF3RuO8bRG8yVpY4xAyv9lJZbVFF9QfsM24r.', 'user');
+(11, 'final', 'customer', 'final', '$2y$10$BwY138TXwiLnxYb1AWh74up/psP3aW4UpZFKi2TnaMR8da/zlfOvC', 'user'),
+(12, 'Carré', 'Laureline', 'cl', '$2y$10$F9CUyUCDTsIUB4lDOG2pqOk4jTj7dCkGRm9XuYmVu8sH8Juvl6Gpu', 'user');
 
 --
 -- Index pour les tables déchargées
@@ -164,12 +156,12 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT pour la table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `ID_ORDER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `ID_ORDER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;COMMIT;
+  MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
