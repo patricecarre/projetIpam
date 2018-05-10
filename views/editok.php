@@ -1,11 +1,11 @@
 <?php $title = 'editok'; ?>
 <?php ob_start(); ?>
 
-					<p class=txtlabel> modification effectuée </p>
-					</br>
-					<form method='post' action='?action=home'>
-						<button class=button type="submit"> RETOUR MENU </button>
-					</form>
-	
+<script type="text/javascript">
+var msg='<?PHP echo " Article ".$_SESSION['itemname']." modifié";?>';
+ alert(msg);
+ document.location.href="?action=home";
+</script>
+
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>

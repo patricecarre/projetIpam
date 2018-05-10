@@ -2,8 +2,7 @@
 <?php ob_start(); ?>
 
 <script type="text/javascript">
-var msg='<?PHP echo " Article ".$_SESSION['itemname']." supprimé";?>';
- alert(msg);
+ alert('item ne peut pas être supprimé car une commande client est en cours');
  document.location.href="?action=home";
 </script>
 	

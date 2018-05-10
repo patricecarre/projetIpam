@@ -1,9 +1,8 @@
-<?php $title = 'deleteok'; ?>
+<?php $title = 'addorderok'; ?>
 <?php ob_start(); ?>
 
 <script type="text/javascript">
-var msg='<?PHP echo " Article ".$_SESSION['itemname']." supprimé";?>';
- alert(msg);
+ alert('votre commande a bien été passée');
  document.location.href="?action=home";
 </script>
 	

@@ -5,7 +5,7 @@
 	margin-left: auto;
 	margin-right: auto;
 	background-color:white-space;
-	min-height: 960px;
+	min-height: 100vh;
 	min-width:960px;
 	
 }
@@ -15,7 +15,10 @@
 	height: auto;
 	min-height: 100%;
 	min-width:100%;
-/*	background: url(../srcimg/pen.jpg) no-repeat center fixed; */
+	background: url(../srcimg/fondmessages.jpg) center fixed;
+/*	background: url(../srcimg/pen.jpg) center fixed; */
+	background-size: cover;
+
 }
 
 .button {
@@ -26,6 +29,13 @@
 	text-align: center;
 	background-color:white-space;
 	background: url(../srcimg/bouton.jpg) no-repeat;
+}
+
+.button2 {
+
+	width: 180px;
+	text-align: center;
+	
 }
 
 img {

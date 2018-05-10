@@ -130,7 +130,7 @@ function validedit()
 function validdelete()
 {	
 	include("models/deleteitemdb.php");
-	include ("views/deleteok.php");
+
 }
 
 function orderitem(){
@@ -156,5 +156,5 @@ function editquantitybasket(){
 function validorder(){
 	include("models/addorderdb.php");
 	include("models/createbasket.php");
-	home();
+	include("views/addorderok.php");
 }

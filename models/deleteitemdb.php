@@ -9,7 +9,7 @@
 		$item->closeCursor();
 		if (!$itemordered) {
 			$bdd->exec('DELETE FROM items WHERE ID_ITEM="'.$_SESSION['iditem'].'"');
-			echo "item supprimé";
+			include("views/deleteok.php");
 		}
-		else echo "item en commande vous ne pouvez pas le supprimer";
+		else include("views/deletenotok.php");
 ?>
