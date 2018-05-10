@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  jeu. 10 mai 2018 à 22:47
+-- Généré le :  jeu. 10 mai 2018 à 23:35
 -- Version du serveur :  10.1.24-MariaDB
 -- Version de PHP :  7.1.6
 
@@ -48,7 +48,7 @@ INSERT INTO `items` (`ID_ITEM`, `NAME_ITEM`, `PRICE_ITEM`, `REF_ITEM`) VALUES
 (11, 'perforatrice xl', '34.00', '534627'),
 (13, 'agraphes', '45.20', 'ETGRSDY'),
 (14, 'agraphes par 100', '5.12', '12345'),
-(17, 'couteau suisse', '34.00', 'SOUISSNAILLF');
+(17, 'couteau suisse', '34.78', 'SOUISSNAILLF');
 
 -- --------------------------------------------------------
 
@@ -92,7 +92,9 @@ INSERT INTO `orders` (`ID_ORDER`, `ID_ITEM`, `ID_USER`, `QUANTITY`, `TOTAL_ORDER
 (40, 7, 4, 2, '4567.94', '2018-05-10 17:58:17'),
 (45, 7, 12, 3, '76.12', '2018-05-10 20:46:29'),
 (46, 11, 12, 2, '76.12', '2018-05-10 20:46:29'),
-(47, 14, 12, 1, '76.12', '2018-05-10 20:46:29');
+(47, 14, 12, 1, '76.12', '2018-05-10 20:46:29'),
+(48, 14, 4, 2, '10.60', '2018-05-10 21:07:12'),
+(49, 9, 4, 3, '10.60', '2018-05-10 21:07:12');
 
 -- --------------------------------------------------------
 
@@ -151,12 +153,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `items`
 --
 ALTER TABLE `items`
-  MODIFY `ID_ITEM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `ID_ITEM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT pour la table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `ID_ORDER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `ID_ORDER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
