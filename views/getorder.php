@@ -21,7 +21,7 @@
 			echo "</br>";
 			echo "</br>";
 			echo "<form method='post' action='?action=validorder'>";
-			echo "<button class='button' type='submit'>VALIDER LE PANIER</button>";
+			echo "<button class='button' type='submit'>PASSER COMMANDE</button>";
 			echo "</form>";			
 	}
 	else echo "VOTRE PANIER EST VIDE";

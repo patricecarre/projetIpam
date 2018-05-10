@@ -3,7 +3,7 @@
 					
 					</br>					
 					<form method='post' action='?action=orderitem'>
-					<button class=button type="submit"> COMMANDER UN ARTICLE</button>
+					<button class=button type="submit"> AJOUTER UN ARTICLE</button>
 					</form>
 					</br>
 					<form method='post' action='?action=home'>
