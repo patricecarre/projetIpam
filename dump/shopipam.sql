@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  jeu. 10 mai 2018 à 19:47
+-- Généré le :  jeu. 10 mai 2018 à 21:42
 -- Version du serveur :  10.1.24-MariaDB
 -- Version de PHP :  7.1.6
 
@@ -47,7 +47,8 @@ INSERT INTO `items` (`ID_ITEM`, `NAME_ITEM`, `PRICE_ITEM`, `REF_ITEM`) VALUES
 (10, 'fluo jaune', '0.85', '234556'),
 (11, 'perforatrice xl', '34.00', '534627'),
 (13, 'agraphes', '45.20', 'ETGRSDY'),
-(14, 'agraphes par 100', '5.12', '12345');
+(14, 'agraphes par 100', '5.12', '12345'),
+(17, 'couteau suisse', '34.00', 'SOUISSNAILLF');
 
 -- --------------------------------------------------------
 
@@ -88,7 +89,18 @@ INSERT INTO `orders` (`ID_ORDER`, `ID_ITEM`, `ID_USER`, `QUANTITY`, `TOTAL_ORDER
 (30, 10, 6, 8, '176.80', '2018-05-10 14:19:54'),
 (31, 11, 6, 5, '176.80', '2018-05-10 14:19:54'),
 (32, 7, 6, 12, '79.60', '2018-05-10 14:28:13'),
-(33, 1, 6, 13, '79.60', '2018-05-10 14:28:13');
+(33, 1, 6, 13, '79.60', '2018-05-10 14:28:13'),
+(34, 1, 4, 1, '4567.94', '2018-05-10 17:58:17'),
+(35, 5, 4, 2, '4567.94', '2018-05-10 17:58:17'),
+(36, 9, 4, 20, '4567.94', '2018-05-10 17:58:17'),
+(37, 10, 4, 2, '4567.94', '2018-05-10 17:58:17'),
+(38, 11, 4, 1, '4567.94', '2018-05-10 17:58:17'),
+(39, 13, 4, 100, '4567.94', '2018-05-10 17:58:17'),
+(40, 7, 4, 2, '4567.94', '2018-05-10 17:58:17'),
+(41, 17, 6, 1, '34.00', '2018-05-10 18:42:24'),
+(42, 14, 6, 2, '10.24', '2018-05-10 18:48:07'),
+(43, 7, 6, 3, '139.00', '2018-05-10 18:54:56'),
+(44, 11, 6, 4, '139.00', '2018-05-10 18:54:56');
 
 -- --------------------------------------------------------
 
@@ -147,12 +159,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `items`
 --
 ALTER TABLE `items`
-  MODIFY `ID_ITEM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `ID_ITEM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT pour la table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `ID_ORDER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `ID_ORDER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
