@@ -12,3 +12,5 @@ utf8_general_ci
 
 un dump au format sql se trouve dans le dossier "dump" à la racine
 
+un document reprenant une explication du projet se trouve dans /doc/projet.txt
+
