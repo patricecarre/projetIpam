@@ -25,5 +25,30 @@
 		$item->closeCursor();
 	}
 	
-
+	function checkStringOk($stringtotest) {
+		$pattern = "#^[a-z0-9éèçàA-Z\s]+$#i";
+		if (preg_match($pattern , $stringtotest)) return true;
+		else {
+			include("views/errorstring.php");
+			return false;
+		}
+	}
+	
+	function checkNumberOk($nbchecked){
+		if (is_numeric($nbchecked) && ($nbchecked>0)) return true;
+		else {
+			include("views/notanumber.php");
+			return false;
+		}
+	}	
+	
+	function checkQuantityOk($qtchecked){
+		if (checkNumberOk($qtchecked)){
+		if ((int)$qtchecked == $qtchecked) return true;
+		else {
+			include("views/qtnotinteger.php");
+			return false;
+			}
+		}
+	}
 ?>

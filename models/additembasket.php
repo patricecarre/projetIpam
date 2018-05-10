@@ -1,4 +1,5 @@
 <?php
+	if (checkQuantityOk($_POST['quantity'])){
 	$nbritem=count($_SESSION['basket']['iditem']);
 	$itemexists=false;
 	if ($nbritem>0) {
@@ -9,9 +10,10 @@
 					$itemexists=true;
 				}
 			}
-	}
+		}
 	if(!$itemexists) {
 		$_SESSION['basket']['iditem'][]=$_GET['iditem'];
 		$_SESSION['basket']['quantity'][]=$_POST['quantity'];
+		}
 	}
 ?>

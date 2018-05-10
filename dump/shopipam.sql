@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mer. 09 mai 2018 à 16:21
+-- Généré le :  jeu. 10 mai 2018 à 19:47
 -- Version du serveur :  10.1.24-MariaDB
 -- Version de PHP :  7.1.6
 
@@ -44,8 +44,10 @@ INSERT INTO `items` (`ID_ITEM`, `NAME_ITEM`, `PRICE_ITEM`, `REF_ITEM`) VALUES
 (5, 'bic vert', '1.32', '32455'),
 (7, 'gomme blanche', '1.00', '238675'),
 (9, 'trombone', '0.12', '76534'),
-(10, 'fluo jaune', '1.00', '234556'),
-(11, 'perforatrice xl', '34.00', '534627');
+(10, 'fluo jaune', '0.85', '234556'),
+(11, 'perforatrice xl', '34.00', '534627'),
+(13, 'agraphes', '45.20', 'ETGRSDY'),
+(14, 'agraphes par 100', '5.12', '12345');
 
 -- --------------------------------------------------------
 
@@ -76,7 +78,17 @@ INSERT INTO `orders` (`ID_ORDER`, `ID_ITEM`, `ID_USER`, `QUANTITY`, `TOTAL_ORDER
 (20, 5, 4, 2, '7.84', '2018-05-09 12:54:49'),
 (21, 7, 4, 15, '15.36', '2018-05-09 13:02:33'),
 (22, 9, 4, 3, '15.36', '2018-05-09 13:02:33'),
-(23, 10, 4, 20, '20.00', '2018-05-09 13:05:48');
+(23, 10, 4, 20, '20.00', '2018-05-09 13:05:48'),
+(24, 9, 4, 2, '0.24', '2018-05-10 13:35:30'),
+(25, 7, 4, 2, '138.00', '2018-05-10 13:39:20'),
+(26, 11, 4, 4, '138.00', '2018-05-10 13:39:20'),
+(27, 1, 6, 3, '16.08', '2018-05-10 14:04:06'),
+(28, 9, 6, 4, '16.08', '2018-05-10 14:04:06'),
+(29, 11, 6, 5, '170.00', '2018-05-10 14:14:44'),
+(30, 10, 6, 8, '176.80', '2018-05-10 14:19:54'),
+(31, 11, 6, 5, '176.80', '2018-05-10 14:19:54'),
+(32, 7, 6, 12, '79.60', '2018-05-10 14:28:13'),
+(33, 1, 6, 13, '79.60', '2018-05-10 14:28:13');
 
 -- --------------------------------------------------------
 
@@ -101,7 +113,9 @@ INSERT INTO `users` (`ID_USER`, `NAME_USER`, `FORENAME_USER`, `LOGIN_USER`, `PWD
 (2, 'carre', 'patrice', 'admin', '$2y$10$utSrBr8b78nMNIPj9gAE7OQyB/Np8MwJcGgRXTVYpQiJutE8.EG66', 'admin'),
 (3, 'bruynbroeck', 'francois', 'fb', '$2y$10$iNwADoIEYfD7Fr2S9f5r7uixBil4dWldH8KCO7A5cMh90pFpgFWVm', 'user'),
 (4, 'fassiau', 'genevieve', 'gfassiau', '$2y$10$vAJU8Upr2o8gfF995EnbH.5oUgv4dT2XL8UQOPKjLyX7oFdh1OwVa', 'user'),
-(5, 'random', 'customer', 'rc', '$2y$10$hfmwB2CofeX6KbVPEZjEQ.lfjOuNETX1qmMp2ZemYhmgPqbxdDNJG', 'user');
+(5, 'random', 'customer', 'rc', '$2y$10$hfmwB2CofeX6KbVPEZjEQ.lfjOuNETX1qmMp2ZemYhmgPqbxdDNJG', 'user'),
+(6, 'q', 'q', 'q', '$2y$10$qlZxlXVuN2aD4NqDwBsc5uQySL1Ip4btkj6SIJEDHp0ERWdngiwwm', 'user'),
+(7, 'w', 'w', 'w', '$2y$10$LYsWIwK4HGp1gmqiDF3RuO8bRG8yVpY4xAyv9lJZbVFF9QfsM24r.', 'user');
 
 --
 -- Index pour les tables déchargées
@@ -133,17 +147,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `items`
 --
 ALTER TABLE `items`
-  MODIFY `ID_ITEM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID_ITEM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT pour la table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `ID_ORDER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ID_ORDER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;COMMIT;
+  MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
