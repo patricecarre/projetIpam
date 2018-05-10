@@ -15,3 +15,7 @@ un dump au format sql se trouve dans /dump/shopimap.sql
 un document reprenant une explication du projet se trouve dans /doc/projet.txt
 
 un document reprenant le code sql pour créer les tables se trouve dans /doc/sql.txt
+
+Dans l'application:
+acces user: fb/123
+acces admin: admin/admin
